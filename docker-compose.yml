@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cake-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: "mongodb://mongo:27017/cake-api"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
